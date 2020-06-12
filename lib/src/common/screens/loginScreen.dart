@@ -112,14 +112,26 @@ class LoginScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                FloatingActionButton(
-                                  onPressed: () => _login(context),
-                                  mini: screen.size.height > 550 ? false : true,
-                                  child: Icon(
-                                    FontAwesomeIcons.arrowRight,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                                loginData.isLoading
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(
+                                          10.0,
+                                        ),
+                                        child: CircularProgressIndicator(),
+                                      )
+                                    : FloatingActionButton(
+                                        onPressed: () => _login(context),
+                                        backgroundColor: loginData.hasError
+                                            ? Theme.of(context).errorColor
+                                            : null,
+                                        mini: screen.size.height > 550
+                                            ? false
+                                            : true,
+                                        child: Icon(
+                                          FontAwesomeIcons.arrowRight,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                               ],
                             ),
                           ],

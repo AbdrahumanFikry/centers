@@ -21,7 +21,7 @@ class Auth extends ChangeNotifier {
   String passwordValidator(value) {
     if (value.isEmpty) {
       return 'password is too short!';
-    } else if (value.length < 8) {
+    } else if (value.length < 6) {
       return 'password should be at least 8 character!';
     }
     return null;
@@ -68,7 +68,9 @@ class Auth extends ChangeNotifier {
           body: body,
         );
         print("Response :" + response.body.toString());
-        errorState(status: true);
+        if (response.body.contains('error')) {
+          errorState(status: true);
+        }
         loading(status: false);
       } catch (error) {
         errorState(status: true, title: error.toString());

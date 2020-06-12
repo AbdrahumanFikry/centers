@@ -1,5 +1,5 @@
 import 'package:centers/src/admin/component/adminAppBar.dart';
-import 'package:centers/src/admin/provider/adminProvider.dart';
+import 'package:centers/src/admin/providers/adminProvider.dart';
 import 'package:centers/src/common/components/clippers/dashBoardClipper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,8 +1,7 @@
+import 'package:centers/src/admin/providers/adminProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:centers/src/admin/provider/adminProvider.dart';
-import 'package:avatar_glow/avatar_glow.dart';
 
 class AdminAppBar extends StatefulWidget {
   @override

@@ -22,7 +22,7 @@ class Auth extends ChangeNotifier {
     if (value.isEmpty) {
       return 'password is too short!';
     } else if (value.length < 6) {
-      return 'password should be at least 8 character!';
+      return 'password should be at least 6 character!';
     }
     return null;
   }

@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:centers/src/admin/ui/dashboard.dart';
-import 'file:///F:/Flutter_Projects/centers/lib/src/common/screens/loginScreen.dart';
-import 'file:///F:/Flutter_Projects/centers/lib/src/common/components/pageRoute.dart';
+
+import 'package:centers/src/common/components/pageRoute.dart';
+import 'package:centers/src/common/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

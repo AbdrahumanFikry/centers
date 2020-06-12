@@ -1,6 +1,6 @@
 import 'package:centers/src/admin/component/adminAppBar.dart';
 import 'package:centers/src/admin/provider/adminProvider.dart';
-import 'file:///F:/Flutter_Projects/centers/lib/src/common/components/clip.dart';
+import 'package:centers/src/common/components/clippers/dashBoardClipper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class DashBoardScreen extends StatelessWidget {
           body: Stack(
             children: <Widget>[
               ClipPath(
-                clipper: CustomClipPath(),
+                clipper: DashBoardClipper(),
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(

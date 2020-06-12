@@ -1,8 +1,8 @@
 import 'package:centers/src/admin/component/centerDataHolder.dart';
+import 'package:centers/src/models/centerDataModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
-import 'package:centers/src/models/centerDataModel.dart';
 
 class CenterData extends StatelessWidget {
   final List<CenterDataModel> data = [
@@ -27,7 +27,7 @@ class CenterData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(400),
+      height: ScreenUtil().setHeight(430),
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         vertical: 20.0,

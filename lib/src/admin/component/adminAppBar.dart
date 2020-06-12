@@ -66,19 +66,17 @@ class _AdminAppBarState extends State<AdminAppBar>
               textAlign: TextAlign.right,
             ),
             Spacer(),
-            AvatarGlow(
-              endRadius: 45.0,
-              child: Material(
-                elevation: 8.0,
-                color: Colors.white,
-                shape: CircleBorder(),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/images/user.png',
-                  ),
-                  backgroundColor: Colors.white,
-                  radius: 25.0,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 5.0,
+              ),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(
+                  'assets/images/user.png',
                 ),
+                backgroundColor: Colors.white,
+                radius: 25.0,
               ),
             ),
           ],

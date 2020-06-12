@@ -24,10 +24,8 @@ class InputWidget extends StatefulWidget {
 }
 
 class _InputWidgetState extends State<InputWidget> {
-  //--------------------------------variables-----------------------------------
   bool _obscureText = true;
 
-  //----------------------------------build-------------------------------------
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,9 +40,10 @@ class _InputWidgetState extends State<InputWidget> {
             style: TextStyle(
               color: Colors.indigo[200],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(24, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(34, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                ScreenUtil.screenWidth > 1750 ? 20 : 34,
+                allowFontScalingSelf: true,
+              ),
             ),
           ),
           TextFormField(
@@ -76,22 +75,24 @@ class _InputWidgetState extends State<InputWidget> {
                 color: Theme.of(context).errorColor,
                 fontFamily: 'Cairo',
               ),
-              suffixIcon: widget.isPassword
-                  ? GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _obscureText = !_obscureText;
-                        });
-                      },
-                      child: Icon(
-                        _obscureText
-                            ? FontAwesomeIcons.eye
-                            : FontAwesomeIcons.eyeSlash,
-                        color: Colors.grey,
-                        size: 18.0,
-                      ),
-                    )
-                  : null,
+              suffixIcon: widget.isLoading
+                  ? null
+                  : widget.isPassword
+                      ? GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          child: Icon(
+                            _obscureText
+                                ? FontAwesomeIcons.eye
+                                : FontAwesomeIcons.eyeSlash,
+                            color: Colors.grey,
+                            size: 18.0,
+                          ),
+                        )
+                      : null,
             ),
             cursorColor: Colors.indigo,
             obscureText: widget.isPassword ? _obscureText : false,
@@ -101,9 +102,10 @@ class _InputWidgetState extends State<InputWidget> {
             style: TextStyle(
               color: Colors.indigo,
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(22, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(32, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                ScreenUtil.screenWidth > 1750 ? 18 : 32,
+                allowFontScalingSelf: true,
+              ),
             ),
           ),
           SizedBox(

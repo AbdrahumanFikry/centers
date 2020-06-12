@@ -70,9 +70,10 @@ class CategoryHolder extends StatelessWidget {
             style: TextStyle(
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(40, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(50, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                ScreenUtil.screenWidth > 1750 ? 40 : 50,
+                allowFontScalingSelf: true,
+              ),
             ),
           ),
           Spacer(),

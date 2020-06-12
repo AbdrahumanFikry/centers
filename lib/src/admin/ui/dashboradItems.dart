@@ -35,9 +35,10 @@ class DashBoardItems extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Cairo',
-                fontSize: ScreenUtil.screenWidth > 1750
-                    ? ScreenUtil().setSp(40, allowFontScalingSelf: true)
-                    : ScreenUtil().setSp(55, allowFontScalingSelf: true),
+                fontSize: ScreenUtil().setSp(
+                  ScreenUtil.screenWidth > 1750 ? 40 : 55,
+                  allowFontScalingSelf: true,
+                ),
               ),
             ),
           ),

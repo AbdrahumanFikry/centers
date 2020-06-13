@@ -23,7 +23,7 @@ class CenterDataHolder extends StatelessWidget {
     } else if (title == 'Workers') {
       itemIcon = FontAwesomeIcons.idCardAlt;
     } else {
-      IconData itemIcon = FontAwesomeIcons.user;
+      itemIcon = FontAwesomeIcons.user;
     }
 
     return Container(
@@ -63,18 +63,17 @@ class CenterDataHolder extends StatelessWidget {
             style: TextStyle(
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(20, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(30, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                  ScreenUtil.screenWidth > 1750 ? 20 : 30,
+                  allowFontScalingSelf: true),
             ),
           ),
           Spacer(),
           Icon(
             itemIcon,
             color: Colors.indigo[900],
-            size: ScreenUtil.screenWidth > 1750
-                ? ScreenUtil().setSp(50, allowFontScalingSelf: true)
-                : ScreenUtil().setHeight(60),
+            size: ScreenUtil().setSp(ScreenUtil.screenWidth > 1750 ? 50 : 60,
+                allowFontScalingSelf: true),
           ),
           Spacer(),
           Text(
@@ -82,9 +81,9 @@ class CenterDataHolder extends StatelessWidget {
             style: TextStyle(
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(32, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(40, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                  ScreenUtil.screenWidth > 1750 ? 32 : 40,
+                  allowFontScalingSelf: true),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -93,9 +92,9 @@ class CenterDataHolder extends StatelessWidget {
             style: TextStyle(
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil.screenWidth > 1750
-                  ? ScreenUtil().setSp(15, allowFontScalingSelf: true)
-                  : ScreenUtil().setSp(25, allowFontScalingSelf: true),
+              fontSize: ScreenUtil().setSp(
+                  ScreenUtil.screenWidth > 1750 ? 15 : 25,
+                  allowFontScalingSelf: true),
             ),
           ),
         ],

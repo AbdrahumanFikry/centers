@@ -1,5 +1,6 @@
-import 'package:centers/src/student/component/ActrionViewer.dart';
 import 'package:flutter/material.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/ActrionViewer.dart';
 
 class TimeLineHandler extends StatelessWidget {
   final bool isToday;

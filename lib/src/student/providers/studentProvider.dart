@@ -1,4 +1,4 @@
-import 'package:centers/src/admin/ui/categoriesScreen.dart';
+import 'package:centers/src/student/ui/studentCategories.dart';
 import 'package:centers/src/student/ui/studentSchedule.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class StudentProvider extends ChangeNotifier {
     isList = !isList;
     if (isList) {
       barAnimationController.forward();
-      targetBody = Categories();
+      targetBody = StudentCategories();
     } else {
       barAnimationController.reverse();
       targetBody = StudentSchedule();

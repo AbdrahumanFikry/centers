@@ -27,28 +27,28 @@ class _StudentAppBarState extends State<StudentAppBar>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      width: MediaQuery.of(context).size.width,
-      color: Colors.transparent,
-      padding: const EdgeInsets.only(
-        top: 10.0,
-        left: 5.0,
-        right: 10.0,
-      ),
-      child: Consumer<StudentProvider>(
-        builder: (context, admin, _) => Row(
+    return Consumer<StudentProvider>(
+      builder: (context, screen, _) => Container(
+        height: 70,
+        width: MediaQuery.of(context).size.width,
+        color: Colors.transparent,
+        padding: const EdgeInsets.only(
+          top: 10.0,
+          left: 5.0,
+          right: 10.0,
+        ),
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             IconButton(
-              tooltip: admin.isList ? 'main' : 'categories',
+              tooltip: screen.isList ? 'main' : 'categories',
               icon: AnimatedIcon(
                 icon: AnimatedIcons.menu_arrow,
-                progress: admin.barAnimationController,
-                color: Colors.white,
+                progress: screen.barAnimationController,
+                color: screen.isList ? Colors.indigo[900] : Colors.white,
                 size: 30.0,
               ),
-              onPressed: () => admin.handleListChanges(),
+              onPressed: () => screen.handleListChanges(),
             ),
             Spacer(),
             Padding(

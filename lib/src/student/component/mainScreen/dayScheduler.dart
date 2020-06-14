@@ -1,7 +1,8 @@
-import 'package:centers/src/student/component/dayHeader.dart';
-import 'package:centers/src/student/component/timeLineHandler.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/dayHeader.dart';
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/timeLineHandler.dart';
 
 class DayScheduler extends StatelessWidget {
   final int index;

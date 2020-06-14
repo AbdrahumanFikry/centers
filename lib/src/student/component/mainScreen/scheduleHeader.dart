@@ -1,7 +1,7 @@
-import 'package:centers/src/student/component/todoCell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/todoCell.dart';
 
 class ScheduleHeader extends StatelessWidget {
   @override
@@ -22,20 +22,7 @@ class ScheduleHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Today',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Cairo',
-                  fontSize: ScreenUtil().setSp(
-                    screen.size.width > 500 ? 30 : 50,
-                    allowFontScalingSelf: true,
-                  ),
-                ),
-                textAlign: TextAlign.right,
-              ),
-              Spacer(),
-              Text(
-                DateFormat('EEE, MMM d').format(DateTime.now()),
+                'Welcome back,',
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Cairo',
@@ -44,6 +31,21 @@ class ScheduleHeader extends StatelessWidget {
                     allowFontScalingSelf: true,
                   ),
                 ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                'Abdrahuman Fikry',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Cairo',
+                  fontSize: ScreenUtil().setSp(
+                    screen.size.width > 500 ? 30 : 46,
+                    allowFontScalingSelf: true,
+                  ),
+                ),
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
+                maxLines: 1,
                 textAlign: TextAlign.right,
               ),
             ],

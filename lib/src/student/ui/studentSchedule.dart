@@ -1,5 +1,5 @@
-import 'package:centers/src/student/component/scheduleHeader.dart';
-import 'package:centers/src/student/component/timeTable.dart';
+import 'package:centers/src/student/component/mainScreen/scheduleHeader.dart';
+import 'package:centers/src/student/component/mainScreen/timeTable.dart';
 import 'package:flutter/material.dart';
 
 class StudentSchedule extends StatelessWidget {

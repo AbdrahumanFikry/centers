@@ -10,6 +10,7 @@ class TODOCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData screen = MediaQuery.of(context);
     return Container(
       height: double.infinity,
       width: 120,
@@ -35,7 +36,7 @@ class TODOCell extends StatelessWidget {
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
               fontSize: ScreenUtil().setSp(
-                44,
+                screen.size.width > 500 ? 26 : 44,
                 allowFontScalingSelf: true,
               ),
             ),

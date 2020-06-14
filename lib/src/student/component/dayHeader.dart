@@ -1,32 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 class DayHeader extends StatelessWidget {
   final int lessonsCount;
   final int examsCount;
-  final int index;
+  final bool isToday;
+  final int day;
+  final String dayTitle;
 
   DayHeader({
     this.lessonsCount = 0,
     this.examsCount = 0,
-    this.index = 0,
+    this.isToday = false,
+    this.day = 0,
+    this.dayTitle = 'null',
   });
 
   @override
   Widget build(BuildContext context) {
-    int day = int.parse(DateFormat('d').format(DateTime.now())) + index;
-    String dayTitle = DateFormat('EEE').format(
-      DateTime.now().add(
-        Duration(days: index),
-      ),
-    );
-    bool isToday = false;
-    if (day == DateTime.now().day) {
-      isToday = true;
-    }
+    MediaQueryData screen = MediaQuery.of(context);
     return Container(
-      height: 85.0,
+      height: screen.size.width > 500 ? 95.0 : 85.0,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey[100],
@@ -46,8 +40,8 @@ class DayHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            height: 75.0,
-            width: 75.0,
+            height: screen.size.width > 500 ? 85.0 : 75.0,
+            width: screen.size.width > 500 ? 85.0 : 75.0,
             decoration: BoxDecoration(
               color: isToday ? Colors.indigo[900] : Colors.grey[500],
               borderRadius: BorderRadius.circular(
@@ -63,7 +57,7 @@ class DayHeader extends StatelessWidget {
                     color: Colors.white,
                     fontFamily: 'Cairo',
                     fontSize: ScreenUtil().setSp(
-                      34,
+                      screen.size.width > 500 ? 24 : 34,
                       allowFontScalingSelf: true,
                     ),
                     fontWeight: FontWeight.bold,
@@ -75,7 +69,7 @@ class DayHeader extends StatelessWidget {
                     color: Colors.white,
                     fontFamily: 'Cairo',
                     fontSize: ScreenUtil().setSp(
-                      25,
+                      screen.size.width > 500 ? 14 : 25,
                       allowFontScalingSelf: true,
                     ),
                   ),
@@ -93,7 +87,7 @@ class DayHeader extends StatelessWidget {
                     color: Colors.indigo[900],
                     fontFamily: 'Cairo',
                     fontSize: ScreenUtil().setSp(
-                      30,
+                      screen.size.width > 500 ? 24 : 30,
                       allowFontScalingSelf: true,
                     ),
                   ),
@@ -108,7 +102,7 @@ class DayHeader extends StatelessWidget {
                     color: Colors.indigo[900],
                     fontFamily: 'Cairo',
                     fontSize: ScreenUtil().setSp(
-                      30,
+                      ScreenUtil.screenWidth > 500 ? 24 : 30,
                       allowFontScalingSelf: true,
                     ),
                   ),

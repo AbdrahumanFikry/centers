@@ -8,7 +8,7 @@ class ScheduleHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData screen = MediaQuery.of(context);
     return Container(
-      height: 100,
+      height: screen.size.width > 500 ? 115 : 100,
       width: screen.size.width,
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(
@@ -27,7 +27,7 @@ class ScheduleHeader extends StatelessWidget {
                   color: Colors.white,
                   fontFamily: 'Cairo',
                   fontSize: ScreenUtil().setSp(
-                    50,
+                    screen.size.width > 500 ? 30 : 50,
                     allowFontScalingSelf: true,
                   ),
                 ),
@@ -40,7 +40,7 @@ class ScheduleHeader extends StatelessWidget {
                   color: Colors.white,
                   fontFamily: 'Cairo',
                   fontSize: ScreenUtil().setSp(
-                    26,
+                    screen.size.width > 500 ? 15 : 26,
                     allowFontScalingSelf: true,
                   ),
                 ),

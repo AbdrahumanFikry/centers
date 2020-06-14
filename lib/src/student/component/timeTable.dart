@@ -1,19 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:centers/src/data/weekDays.dart';
 import 'package:centers/src/student/component/dayScheduler.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TimeTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData screen = MediaQuery.of(context);
-//    List<Widget> days = [
-//      DayScheduler(),
-//      DayScheduler(),
-//      DayScheduler(),
-//      DayScheduler(),
-//      DayScheduler(),
-//    ];
     return Expanded(
       child: Container(
         width: screen.size.width,
@@ -31,27 +26,56 @@ class TimeTable extends StatelessWidget {
         margin: const EdgeInsets.only(
           top: 15.0,
         ),
-        child: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (overScroll) {
-            overScroll.disallowGlow();
-            return true;
-          },
-          child: CarouselSlider(
-            options: CarouselOptions(
-              aspectRatio: 10,
-              enlargeCenterPage: false,
-              height: double.infinity,
-              enableInfiniteScroll: false,
-              initialPage: 1,
-              autoPlay: false,
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5.0,
+                  ),
+                  child: RotatedBox(
+                    quarterTurns: 75,
+                    child: Text(
+                      'Timeline',
+                      style: TextStyle(
+                        color: Colors.indigo,
+                        fontFamily: 'Cairo',
+                        fontSize: ScreenUtil().setSp(
+                          screen.size.width > 500 ? 26 : 34,
+                          allowFontScalingSelf: true,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            items: days.map((day) {
-              int index = days.indexWhere((element) => element == day);
-              return DayScheduler(
-                index: index,
-              );
-            }).toList(),
-          ),
+            NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overScroll) {
+                overScroll.disallowGlow();
+                return true;
+              },
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  aspectRatio: 10,
+                  enlargeCenterPage: false,
+                  height: double.infinity,
+                  enableInfiniteScroll: false,
+                  initialPage: 0,
+                  autoPlay: false,
+                ),
+                items: days.map((day) {
+                  int index = days.indexWhere((element) => element == day);
+                  return DayScheduler(
+                    index: index,
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
         ),
       ),
     );

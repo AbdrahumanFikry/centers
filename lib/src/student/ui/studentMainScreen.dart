@@ -1,4 +1,5 @@
 import 'package:centers/src/student/component/studentAppBar.dart';
+import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,8 +7,15 @@ import 'package:provider/provider.dart';
 class StudentMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => StudentProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => StudentProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => StudentData(),
+        ),
+      ],
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Theme.of(context).primaryColor,

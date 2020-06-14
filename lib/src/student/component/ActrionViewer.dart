@@ -14,7 +14,7 @@ class ActionViewer extends StatelessWidget {
     this.isExam = true,
     this.isToday = false,
     this.index,
-    this.time = '10:00-11:30',
+    this.time = '10:00-12:30',
   });
 
   @override
@@ -34,16 +34,33 @@ class ActionViewer extends StatelessWidget {
         statusColor = Colors.green;
       } else if (status == 'Soon') {
         statusColor = Colors.indigo[900];
+      } else if (status == 'Canceled') {
+        statusColor = Colors.black;
       }
     }
     return Container(
       height: screen.size.width > 500 ? 140 : 120,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: status == 'Soon' || status == 'Started'
+            ? Colors.grey[200]
+            : Colors.grey[100],
         borderRadius: BorderRadius.circular(
           7.5,
         ),
+        boxShadow: status == 'Soon' || status == 'Started'
+            ? [
+                BoxShadow(
+                  color: Colors.grey[500],
+                  blurRadius: 5.0,
+                  spreadRadius: 1.5,
+                  offset: Offset(
+                    2.5,
+                    3.5,
+                  ),
+                ),
+              ]
+            : [],
       ),
       margin: const EdgeInsets.only(
         right: 30.0,
@@ -56,9 +73,11 @@ class ActionViewer extends StatelessWidget {
             height: double.infinity,
             width: 10.0,
             decoration: BoxDecoration(
-              color: isExam
-                  ? Theme.of(context).errorColor
-                  : isToday ? Colors.indigo : Colors.grey,
+              color: status == 'Canceled'
+                  ? Colors.black
+                  : isExam
+                      ? Theme.of(context).errorColor
+                      : isToday ? Colors.indigo : Colors.grey,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(
                   7.5,

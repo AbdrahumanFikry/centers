@@ -9,9 +9,9 @@ class AbsenceCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cellData = Provider.of<MaterialAbsence>(context);
-    final double percent =
-        1.0 - (cellData.daysAbsence / cellData.allDays).toDouble();
+    MediaQueryData screen = MediaQuery.of(context);
     return Container(
+      width: screen.size.width > 500 ? 500 : null,
       margin: const EdgeInsets.symmetric(
         horizontal: 10.0,
         vertical: 7.0,
@@ -45,19 +45,22 @@ class AbsenceCell extends StatelessWidget {
                 animationDuration: 2,
                 radius: 70.0,
                 lineWidth: 5.0,
-                percent: percent,
+                percent: cellData.daysAbsence >= 3 || cellData.daysAbsence == 0
+                    ? 1.0
+                    : 1.0 - (cellData.daysAbsence / 3),
                 center: Text(
-                  percent <= 0.9
+                  cellData.daysAbsence > 2
                       ? 'Warning'
-                      : '${cellData.allDays - cellData.daysAbsence}/${cellData.allDays}',
+                      : '${cellData.daysAbsence}/3',
                   style: TextStyle(
-                    color: percent <= 0.9
+                    color: cellData.daysAbsence > 1
                         ? Theme.of(context).errorColor
                         : Colors.green,
                     fontFamily: 'Cairo',
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                progressColor: percent <= 0.9
+                progressColor: cellData.daysAbsence > 1
                     ? Theme.of(context).errorColor
                     : Colors.green,
               ),

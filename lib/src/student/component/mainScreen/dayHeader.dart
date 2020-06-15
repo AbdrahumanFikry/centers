@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DayHeader extends StatelessWidget {
   final int lessonsCount;
@@ -56,10 +55,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      screen.size.width > 500 ? 24 : 34,
-                      allowFontScalingSelf: true,
-                    ),
+                    fontSize: screen.size.width > 500 ? 24 : 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -68,10 +64,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      screen.size.width > 500 ? 14 : 25,
-                      allowFontScalingSelf: true,
-                    ),
+                    fontSize: screen.size.width > 500 ? 20 : 18,
                   ),
                 ),
               ],
@@ -86,10 +79,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.indigo[900],
                     fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      screen.size.width > 500 ? 24 : 30,
-                      allowFontScalingSelf: true,
-                    ),
+                    fontSize: screen.size.width > 500 ? 24 : 18,
                   ),
                 )
               : SizedBox(
@@ -101,10 +91,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.indigo[900],
                     fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      ScreenUtil.screenWidth > 500 ? 24 : 30,
-                      allowFontScalingSelf: true,
-                    ),
+                    fontSize: screen.size.width > 500 ? 24 : 18,
                   ),
                 )
               : SizedBox(

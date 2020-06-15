@@ -1,6 +1,5 @@
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -109,10 +108,7 @@ class ActionViewer extends StatelessWidget {
                               ? Theme.of(context).errorColor
                               : isToday ? Colors.indigo : Colors.grey,
                           fontFamily: 'Cairo',
-                          fontSize: ScreenUtil().setSp(
-                            screen.size.width > 500 ? 18 : 24,
-                            allowFontScalingSelf: true,
-                          ),
+                          fontSize: screen.size.width > 500 ? 20 : 16,
                         ),
                       ),
                       Spacer(),
@@ -128,10 +124,7 @@ class ActionViewer extends StatelessWidget {
                         style: TextStyle(
                           color: statusColor,
                           fontFamily: 'Cairo',
-                          fontSize: ScreenUtil().setSp(
-                            screen.size.width > 500 ? 18 : 24,
-                            allowFontScalingSelf: true,
-                          ),
+                          fontSize: screen.size.width > 500 ? 22 : 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -142,10 +135,7 @@ class ActionViewer extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: 'Cairo',
-                      fontSize: ScreenUtil().setSp(
-                        screen.size.width > 500 ? 24 : 36,
-                        allowFontScalingSelf: true,
-                      ),
+                      fontSize: screen.size.width > 500 ? 22 : 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -161,19 +151,18 @@ class ActionViewer extends StatelessWidget {
                       const SizedBox(
                         width: 7.5,
                       ),
-                      Text(
-                        'Ahmed Elshinawy',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Cairo',
-                          fontSize: ScreenUtil().setSp(
-                            screen.size.width > 500 ? 18 : 26,
-                            allowFontScalingSelf: true,
+                      Expanded(
+                        child: Text(
+                          'Ahmed Elshinawy',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Cairo',
+                            fontSize: screen.size.width > 500 ? 18 : 14,
                           ),
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        softWrap: true,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
                       ),
                       Spacer(),
                       Text(
@@ -181,10 +170,7 @@ class ActionViewer extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Cairo',
-                          fontSize: ScreenUtil().setSp(
-                            screen.size.width > 500 ? 18 : 26,
-                            allowFontScalingSelf: true,
-                          ),
+                          fontSize: screen.size.width > 500 ? 18 : 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

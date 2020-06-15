@@ -1,6 +1,7 @@
 import 'package:centers/src/models/absenceDay.dart';
 import 'package:centers/src/student/component/absenceScreen/dayHandler.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AbsenceDays extends StatelessWidget {
   final List<AbsenceDay> days;
@@ -25,9 +26,9 @@ class AbsenceDays extends StatelessWidget {
           itemCount: days.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return DayHandler(
-              day: days[index].day,
-              month: days[index].month,
+            return ChangeNotifierProvider.value(
+              value: days[index],
+              child: DayHandler(),
             );
           },
         ),

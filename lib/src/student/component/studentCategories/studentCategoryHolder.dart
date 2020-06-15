@@ -29,8 +29,9 @@ class StudentCategoryHolder extends StatelessWidget {
             }
           : () {},
       child: Container(
-        height: screen.size.width > 500 ? 110 : 100,
-        width: MediaQuery.of(context).size.width,
+        height: 100,
+        width:
+            screen.size.width > 500 ? 500 : MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(
           vertical: 7.0,
           horizontal: 20.0,
@@ -62,10 +63,7 @@ class StudentCategoryHolder extends StatelessWidget {
               style: TextStyle(
                 color: Colors.indigo[900],
                 fontFamily: 'Cairo',
-                fontSize: ScreenUtil().setSp(
-                  screen.size.width > 500 ? 40 : 50,
-                  allowFontScalingSelf: true,
-                ),
+                fontSize: screen.size.width > 500 ? 40 : 28,
               ),
             ),
             const Spacer(),
@@ -87,7 +85,7 @@ class StudentCategoryHolder extends StatelessWidget {
                     width: 1.0,
                   ),
             const SizedBox(
-              width: 20.0,
+              width: 15.0,
             ),
             Icon(
               Icons.arrow_forward_ios,

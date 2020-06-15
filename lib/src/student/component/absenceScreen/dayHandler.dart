@@ -1,16 +1,19 @@
+import 'package:centers/src/models/absenceDay.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DayHandler extends StatelessWidget {
-  final String day;
-  final String month;
-
-  DayHandler({
-    this.day = 'null',
-    this.month = 'null',
-  });
+//  final String day;
+//  final String month;
+//
+//  DayHandler({
+//    this.day = 'null',
+//    this.month = 'null',
+//  });
 
   @override
   Widget build(BuildContext context) {
+    final dayData = Provider.of<AbsenceDay>(context);
     MediaQueryData screen = MediaQuery.of(context);
     return Container(
       width: screen.size.width > 500 ? 85.0 : 75.0,
@@ -27,7 +30,7 @@ class DayHandler extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            day,
+            dayData.day,
             style: TextStyle(
               color: Colors.black,
               fontFamily: 'Cairo',
@@ -36,7 +39,7 @@ class DayHandler extends StatelessWidget {
             ),
           ),
           Text(
-            month,
+            dayData.month,
             style: TextStyle(
               color: Colors.black,
               fontFamily: 'Cairo',

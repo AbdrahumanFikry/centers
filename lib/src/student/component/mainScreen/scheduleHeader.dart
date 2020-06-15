@@ -1,8 +1,5 @@
 import 'package:centers/src/student/component/mainScreen/todoCell.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
 
 class ScheduleHeader extends StatelessWidget {
   @override
@@ -14,7 +11,7 @@ class ScheduleHeader extends StatelessWidget {
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(
         vertical: 10.0,
-        horizontal: 20.0,
+        horizontal: 15.0,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,27 +24,23 @@ class ScheduleHeader extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Cairo',
-                  fontSize: ScreenUtil().setSp(
-                    screen.size.width > 500 ? 15 : 26,
-                    allowFontScalingSelf: true,
-                  ),
+                  fontSize: screen.size.width > 500 ? 20 : 14,
                 ),
                 textAlign: TextAlign.right,
               ),
-              Text(
-                'Abdrahuman Fikry',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Cairo',
-                  fontSize: ScreenUtil().setSp(
-                    screen.size.width > 500 ? 30 : 46,
-                    allowFontScalingSelf: true,
+              Expanded(
+                child: Text(
+                  'Abdrahuman Fikry',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Cairo',
+                    fontSize: screen.size.width > 500 ? 30 : 22,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                  maxLines: 1,
+                  textAlign: TextAlign.right,
                 ),
-                overflow: TextOverflow.ellipsis,
-                softWrap: true,
-                maxLines: 1,
-                textAlign: TextAlign.right,
               ),
             ],
           ),

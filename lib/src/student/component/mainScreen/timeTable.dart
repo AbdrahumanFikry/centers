@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:centers/src/data/weekDays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'dayScheduler.dart';
 
@@ -44,10 +43,7 @@ class TimeTable extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.indigo,
                         fontFamily: 'Cairo',
-                        fontSize: ScreenUtil().setSp(
-                          screen.size.width > 500 ? 26 : 34,
-                          allowFontScalingSelf: true,
-                        ),
+                        fontSize: screen.size.width > 500 ? 24 : 18,
                       ),
                     ),
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TODOCell extends StatelessWidget {
   final int toDoListCount;
@@ -35,10 +34,7 @@ class TODOCell extends StatelessWidget {
             style: TextStyle(
               color: Colors.indigo[900],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil().setSp(
-                screen.size.width > 500 ? 26 : 44,
-                allowFontScalingSelf: true,
-              ),
+              fontSize: screen.size.width > 500 ? 26 : 22,
             ),
           ),
           Spacer(),

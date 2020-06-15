@@ -26,7 +26,7 @@ class AbsenceHeader extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 Colors.indigo[900],
-                Colors.indigo[400],
+                Colors.indigo[500],
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

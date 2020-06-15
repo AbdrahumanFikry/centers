@@ -8,7 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class StudentCategories extends StatelessWidget {
   final List<CenterDataModel> data = [
     CenterDataModel(
-        title: 'Absence', count: 0, avatar: FontAwesomeIcons.addressBook),
+      title: 'Absence',
+      count: 0,
+      avatar: FontAwesomeIcons.addressBook,
+    ),
     CenterDataModel(
       title: 'Messages',
       count: 2,

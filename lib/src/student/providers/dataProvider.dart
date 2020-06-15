@@ -1,106 +1,71 @@
-import 'dart:convert';
-
-import 'package:centers/src/models/timeLineData.dart';
+import 'package:centers/src/models/absenceDay.dart';
 import 'package:flutter/material.dart';
 
 class StudentData extends ChangeNotifier {
-  var date = {
-    "data": [
-      {
-        "id": 1,
-        "day": "sat",
-        "time_line": [
-          {
-            "id": 11,
-            "title": "Physics",
-            "time": "10:00-11:00",
-            "type": "exam",
-            "teacher": "Abdrahuman Fikry"
-          },
-          {
-            "id": 22,
-            "title": "Arabic",
-            "time": "12:00-2:00",
-            "type": "lesson",
-            "teacher": "Mohammed Essam"
-          },
-          {
-            "id": 33,
-            "title": "French",
-            "time": "4:30-5:30",
-            "type": "lesson",
-            "teacher": "Ahmed Mostafa"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "day": "sun",
-        "time_line": [
-          {
-            "id": 11,
-            "title": "Data Structure",
-            "time": "10:00-11:00",
-            "type": "lesson",
-            "teacher": "Abdrahuman Fikry"
-          },
-          {
-            "id": 22,
-            "title": "Arabic",
-            "time": "12:00-2:00",
-            "type": "lesson",
-            "teacher": "Mohammed Essam"
-          },
-          {
-            "id": 33,
-            "title": "Algorithms",
-            "time": "4:30-5:30",
-            "type": "lesson",
-            "teacher": "Ahmed Mostafa"
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "day": "mon",
-        "time_line": [
-          {
-            "id": 11,
-            "title": "Physics",
-            "time": "10:00-11:00",
-            "type": "lesson",
-            "teacher": "Abdrahuman Fikry"
-          },
-          {
-            "id": 22,
-            "title": "Arabic",
-            "time": "12:00-2:00",
-            "type": "lesson",
-            "teacher": "Mohammed Essam"
-          },
-          {
-            "id": 33,
-            "title": "French",
-            "time": "4:30-5:30",
-            "type": "exam",
-            "teacher": "Ahmed Mostafa"
-          }
-        ]
-      }
-    ]
-  };
-  TimeLineData timeLineData;
-  int lessons = 0;
-  int exams = 0;
+  int warnings = 0;
+  List<MaterialAbsence> materialAbsence = [
+    MaterialAbsence(
+      materialName: 'English',
+      allDays: 10,
+      daysAbsence: 0,
+      absenceDays: [],
+    ),
+    MaterialAbsence(
+      materialName: 'Arabic',
+      allDays: 10,
+      daysAbsence: 2,
+      absenceDays: [
+        AbsenceDay(
+          day: '8',
+          month: 'Feb',
+        ),
+        AbsenceDay(
+          day: '1',
+          month: 'Mar',
+        ),
+      ],
+    ),
+    MaterialAbsence(
+      materialName: 'Physics',
+      allDays: 10,
+      daysAbsence: 3,
+      absenceDays: [
+        AbsenceDay(
+          day: '8',
+          month: 'Feb',
+        ),
+        AbsenceDay(
+          day: '1',
+          month: 'Jan',
+        ),
+        AbsenceDay(
+          day: '3',
+          month: 'Jan',
+        ),
+      ],
+    ),
+    MaterialAbsence(
+      materialName: 'Math',
+      allDays: 10,
+      daysAbsence: 0,
+      absenceDays: [],
+    ),
+    MaterialAbsence(
+      materialName: 'Science',
+      allDays: 10,
+      daysAbsence: 0,
+      absenceDays: [],
+    ),
+  ];
 
-  void fetchData() async {
-    String jsonData = json.encode(date);
-    timeLineData = await json.decode(jsonData);
-    timeLineData.data.forEach((element) {
-      element.timeLine.forEach((e) {
-        e.type == 'lesson' ? lessons++ : exams++;
-      });
+  int warningCount() {
+    int count = 0;
+    materialAbsence.forEach((element) {
+      if (element.daysAbsence > 1) {
+        count++;
+      }
     });
-    notifyListeners();
+    warnings = count;
+    return warnings;
   }
 }

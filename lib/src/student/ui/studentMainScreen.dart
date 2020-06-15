@@ -1,5 +1,4 @@
 import 'package:centers/src/student/component/mainScreen/studentAppBar.dart';
-import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +10,6 @@ class StudentMainScreen extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => StudentProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => StudentData(),
         ),
       ],
       child: SafeArea(

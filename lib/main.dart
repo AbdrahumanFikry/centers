@@ -1,6 +1,6 @@
 import 'package:centers/src/common/providers/authenticationProvider.dart';
 import 'package:centers/src/common/screens/splashScreen.dart';
-import 'package:centers/src/student/ui/absenceScreen.dart';
+import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => Auth(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => StudentData(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.indigo,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: AbsenceScreen(),
+        home: SplashScreen(),
       ),
     );
   }

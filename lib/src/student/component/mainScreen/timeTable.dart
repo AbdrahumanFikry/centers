@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/dayScheduler.dart';
+import 'dayScheduler.dart';
 
 class TimeTable extends StatelessWidget {
   @override

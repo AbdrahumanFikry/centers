@@ -7,6 +7,7 @@ class StudentCategoryHolder extends StatelessWidget {
   final String title;
   final IconData avatar;
 
+
   StudentCategoryHolder({
     this.notification = 0,
     this.title = 'title',

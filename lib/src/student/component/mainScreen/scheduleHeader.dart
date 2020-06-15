@@ -1,7 +1,8 @@
+import 'package:centers/src/student/component/mainScreen/todoCell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/mainScreen/todoCell.dart';
+
 
 class ScheduleHeader extends StatelessWidget {
   @override

@@ -2,7 +2,6 @@ import 'package:centers/src/models/absenceDay.dart';
 import 'package:centers/src/student/component/absenceScreen/absenceDays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class AbsenceCell extends StatelessWidget {
@@ -40,30 +39,32 @@ class AbsenceCell extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              CircularPercentIndicator(
-                animation: true,
-                animationDuration: 2,
-                radius: 70.0,
-                lineWidth: 5.0,
-                percent: cellData.daysAbsence >= 3 || cellData.daysAbsence == 0
-                    ? 1.0
-                    : 1.0 - (cellData.daysAbsence / 3),
-                center: Text(
-                  cellData.daysAbsence > 2
-                      ? 'Warning'
-                      : '${cellData.daysAbsence}/3',
-                  style: TextStyle(
-                    color: cellData.daysAbsence > 1
-                        ? Theme.of(context).errorColor
-                        : Colors.green,
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.bold,
-                  ),
+//              CircularPercentIndicator(
+//                animation: true,
+//                animationDuration: 2,
+//                radius: 70.0,
+//                lineWidth: 5.0,
+//                percent: cellData.daysAbsence >= 3 || cellData.daysAbsence == 0
+//                    ? 1.0
+//                    : 1.0 - (cellData.daysAbsence / 3),
+//                center:
+              Text(
+                cellData.daysAbsence > 2
+                    ? 'Warning'
+                    : '${cellData.daysAbsence}/3',
+                style: TextStyle(
+                  color: cellData.daysAbsence > 1
+                      ? Theme.of(context).errorColor
+                      : Colors.green,
+                  fontFamily: 'Cairo',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
                 ),
-                progressColor: cellData.daysAbsence > 1
-                    ? Theme.of(context).errorColor
-                    : Colors.green,
               ),
+//                progressColor: cellData.daysAbsence > 1
+//                    ? Theme.of(context).errorColor
+//                    : Colors.green,
+//              ),
             ],
           ),
           cellData.absenceDays.isNotEmpty

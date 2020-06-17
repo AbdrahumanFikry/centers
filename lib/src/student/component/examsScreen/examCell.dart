@@ -160,7 +160,9 @@ class ExamCell extends StatelessWidget {
                         ),
                       ],
                     ),
-                    progressColor: Colors.green,
+                    progressColor: cellData.scoured / cellData.mark <= 0.6
+                        ? Colors.red
+                        : Colors.green,
                   ),
                   RaisedButton(
                     child: Text(

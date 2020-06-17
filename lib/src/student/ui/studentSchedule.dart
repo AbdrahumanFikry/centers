@@ -7,8 +7,6 @@ class StudentSchedule extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData screen = MediaQuery.of(context);
     return Container(
-      height: screen.size.height - screen.padding.top - 94,
-      width: screen.size.width,
       color: Colors.transparent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

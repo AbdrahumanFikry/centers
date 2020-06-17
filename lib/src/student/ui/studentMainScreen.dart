@@ -39,16 +39,18 @@ class StudentMainScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     StudentAppBar(),
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 500),
-                      transitionBuilder:
-                          (Widget child, Animation<double> animation) {
-                        return FadeTransition(
-                          child: child,
-                          opacity: animation,
-                        );
-                      },
-                      child: body.targetBody,
+                    Expanded(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 500),
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
+                          return FadeTransition(
+                            child: child,
+                            opacity: animation,
+                          );
+                        },
+                        child: body.targetBody,
+                      ),
                     ),
                   ],
                 ),

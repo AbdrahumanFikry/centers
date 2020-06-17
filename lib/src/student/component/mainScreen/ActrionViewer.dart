@@ -164,7 +164,6 @@ class ActionViewer extends StatelessWidget {
                           maxLines: 1,
                         ),
                       ),
-                      Spacer(),
                       Text(
                         time,
                         style: TextStyle(

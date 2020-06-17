@@ -37,7 +37,6 @@ class StudentCategories extends StatelessWidget {
       children: <Widget>[
         Container(
           width: screen.size.width,
-          height: screen.size.height - 95,
           decoration: BoxDecoration(
             color: Colors.transparent,
 //            borderRadius: BorderRadius.only(

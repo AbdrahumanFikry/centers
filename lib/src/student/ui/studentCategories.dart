@@ -49,34 +49,39 @@ class StudentCategories extends StatelessWidget {
           padding: const EdgeInsets.only(
             top: 10.0,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                  vertical: 5.0,
-                ),
-                child: Text(
-                  'Choose activity',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      screen.size.width > 500 ? 24 : 44,
-                      allowFontScalingSelf: true,
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (overScroll) {
+              overScroll.disallowGlow();
+              return true;
+            },
+            child: ListView(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 5.0,
+                  ),
+                  child: Text(
+                    'Choose activity',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Cairo',
+                      fontSize: ScreenUtil().setSp(
+                        screen.size.width > 500 ? 24 : 44,
+                        allowFontScalingSelf: true,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: AnimationLimiter(
+                AnimationLimiter(
                   child: NotificationListener<OverscrollIndicatorNotification>(
                     onNotification: (overScroll) {
                       overScroll.disallowGlow();
                       return true;
                     },
                     child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
                       itemCount: data.length,
                       itemBuilder: (BuildContext context, int index) {
                         return AnimationConfiguration.staggeredList(
@@ -97,8 +102,8 @@ class StudentCategories extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

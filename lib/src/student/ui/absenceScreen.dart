@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 class AbsenceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData screen = MediaQuery.of(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -32,16 +31,16 @@ class AbsenceScreen extends StatelessWidget {
             },
           ),
         ),
-        body: Consumer<StudentData>(
-          builder: (context, data, _) => Stack(
-            children: <Widget>[
-              AbsenceList(),
-              AbsenceHeader(
+        body: Stack(
+          children: <Widget>[
+            AbsenceList(),
+            Consumer<StudentData>(
+              builder: (context, data, _) => AbsenceHeader(
                 materials: data.materialAbsence.length,
                 warnings: data.warningCount(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

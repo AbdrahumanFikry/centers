@@ -23,7 +23,7 @@ class CategoryHolder extends StatelessWidget {
     } else if (title == 'Workers') {
       itemIcon = FontAwesomeIcons.idCardAlt;
     } else {
-      IconData itemIcon = FontAwesomeIcons.user;
+      itemIcon = FontAwesomeIcons.user;
     }
     return Container(
       height: ScreenUtil().setHeight(175),

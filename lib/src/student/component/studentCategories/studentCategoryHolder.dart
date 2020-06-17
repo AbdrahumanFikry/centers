@@ -1,8 +1,11 @@
 import 'package:centers/src/common/components/pageRoute.dart';
+import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/ui/absenceScreen.dart';
+import 'package:centers/src/student/ui/examsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class StudentCategoryHolder extends StatelessWidget {
   final int notification;
@@ -19,15 +22,24 @@ class StudentCategoryHolder extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData screen = MediaQuery.of(context);
     return InkWell(
-      onTap: title == 'Absence'
-          ? () {
-              Navigator.of(context).push(
-                ScaleRoute(
-                  page: AbsenceScreen(),
-                ),
-              );
-            }
-          : () {},
+      onTap: () {
+        if (title == 'Absence') {
+          Navigator.of(context).push(
+            FadeRoute(
+              page: AbsenceScreen(),
+            ),
+          );
+        } else if (title == 'Exam') {
+          Provider.of<StudentData>(context, listen: false)
+            ..fetchEarlierExams()
+            ..fetchFinishedExams();
+          Navigator.of(context).push(
+            FadeRoute(
+              page: ExamsScreen(),
+            ),
+          );
+        }
+      },
       child: Container(
         height: 100,
         width:

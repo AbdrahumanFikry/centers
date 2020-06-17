@@ -1,4 +1,4 @@
-import 'package:centers/src/student/component/absenceScreen/absenseCell.dart';
+import 'package:centers/src/student/component/absenceScreen/absenceCell.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';

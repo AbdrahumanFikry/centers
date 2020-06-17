@@ -50,7 +50,7 @@ class AbsenceHeader extends StatelessWidget {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey[500],
+                  color: Colors.grey.withOpacity(0.5),
                   blurRadius: 5.0,
                   spreadRadius: 0.5,
                   offset: Offset(
@@ -108,7 +108,7 @@ class AbsenceHeader extends StatelessWidget {
                         style: TextStyle(
                           color: warnings > 0
                               ? Theme.of(context).errorColor
-                              : Colors.black,
+                              : Colors.indigo,
                           fontFamily: 'Cairo',
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,

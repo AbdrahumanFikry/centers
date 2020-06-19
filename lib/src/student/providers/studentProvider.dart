@@ -1,4 +1,4 @@
-import 'package:centers/src/student/ui/studentCategories.dart';
+import 'package:centers/src/student/ui/studentCategoriesScreen.dart';
 import 'package:centers/src/student/ui/studentSchedule.dart';
 import 'package:flutter/material.dart';
 

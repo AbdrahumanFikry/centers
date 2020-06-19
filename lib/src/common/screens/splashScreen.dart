@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:centers/src/common/components/pageRoute.dart';
-import 'package:centers/src/student/ui/studentMainScreen.dart';
+import 'package:centers/src/common/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).push(
         FadeRoute(
-          page: StudentMainScreen(),
+          page: LoginScreen(),
         ),
       );
     });

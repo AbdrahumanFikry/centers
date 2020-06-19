@@ -2,8 +2,8 @@ import 'package:centers/src/common/components/pageRoute.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/ui/absenceScreen.dart';
 import 'package:centers/src/student/ui/examsScreen.dart';
+import 'package:centers/src/student/ui/messagesScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -38,6 +38,12 @@ class StudentCategoryHolder extends StatelessWidget {
               page: ExamsScreen(),
             ),
           );
+        } else if (title == 'Messages') {
+          Navigator.of(context).push(
+            FadeRoute(
+              page: MessagesScreen(),
+            ),
+          );
         }
       },
       child: Container(
@@ -65,7 +71,7 @@ class StudentCategoryHolder extends StatelessWidget {
             Icon(
               avatar,
               color: Colors.indigo[900],
-              size: ScreenUtil().setHeight(45),
+              size: 22.0,
             ),
             const SizedBox(
               width: 25.0,
@@ -75,7 +81,7 @@ class StudentCategoryHolder extends StatelessWidget {
               style: TextStyle(
                 color: Colors.indigo[900],
                 fontFamily: 'Cairo',
-                fontSize: screen.size.width > 500 ? 40 : 28,
+                fontSize: 28,
               ),
             ),
             const Spacer(),

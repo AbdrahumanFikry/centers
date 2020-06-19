@@ -1,9 +1,9 @@
-import 'package:centers/src/admin/ui/dashboard.dart';
 import 'package:centers/src/common/components/clippers/loginClipper.dart';
 import 'package:centers/src/common/components/errorViewer.dart';
 import 'package:centers/src/common/components/inputWidget.dart';
 import 'package:centers/src/common/components/pageRoute.dart';
 import 'package:centers/src/common/providers/authenticationProvider.dart';
+import 'package:centers/src/student/ui/studentMainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   void _skip(BuildContext context) {
     Navigator.of(context).push(
       FadeRoute(
-        page: DashBoardScreen(),
+        page: StudentMainScreen(),
       ),
     );
   }

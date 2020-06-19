@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CenterDataModel {
   final String title;
-  final int count;
+  int count;
   final IconData avatar;
 
   CenterDataModel({

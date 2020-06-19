@@ -1,5 +1,7 @@
 import 'package:centers/src/models/absenceDay.dart';
+import 'package:centers/src/models/chat.dart';
 import 'package:centers/src/models/examModel.dart';
+import 'package:centers/src/student/component/messagesScreen/messageViewer.dart';
 import 'package:flutter/material.dart';
 
 class StudentData extends ChangeNotifier {
@@ -104,6 +106,54 @@ class StudentData extends ChangeNotifier {
       scoured: 25,
     ),
   ];
+  TextEditingController message = TextEditingController();
+  List<Widget> messages = [
+    MessageViewer(
+      type: 'me',
+      date: '12/5/2020',
+      content: 'assets/images/user.png',
+    ),
+    MessageViewer(
+      type: 'else',
+      date: '12/5/2020',
+      content: 'Hello from the other side ',
+    ),
+    MessageViewer(
+      type: 'me',
+      date: '12/5/2020',
+      content: 'Hello',
+    ),
+  ];
+  List<Chat> chats = [
+    Chat(
+      name: 'Ahmed Mostafa',
+      lastMessage: 'Hi Abdrahuman',
+      date: '12:30 am',
+      read: false,
+    ),
+    Chat(
+      name: 'Mohamed Essam',
+      lastMessage: 'How are you?',
+      date: '10:34 pm',
+      read: false,
+    ),
+    Chat(
+      name: 'Sayed Kamal',
+      lastMessage: 'Eggy',
+      date: '2:00 am',
+      read: true,
+    ),
+  ];
+
+  int readCount() {
+    int read = 0;
+    chats.forEach((element) {
+      if (!element.read) {
+        read++;
+      }
+    });
+    return read;
+  }
 
   int warningCount() {
     int count = 0;
@@ -137,5 +187,25 @@ class StudentData extends ChangeNotifier {
       }
     });
     notifyListeners();
+  }
+
+  String messageText = '';
+
+  void typing(String value) {
+    messageText = value;
+    message.selection = TextSelection.collapsed(offset: message.text.length);
+    notifyListeners();
+  }
+
+  void addMessage() {
+    final cell = MessageViewer(
+      content: messageText,
+      date: DateTime.now().toString().split(' ')[0],
+      id: 0,
+      type: 'me',
+    );
+    messages.add(cell);
+    notifyListeners();
+    message.clear();
   }
 }

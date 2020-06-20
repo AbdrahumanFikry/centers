@@ -34,7 +34,7 @@ class ScheduleHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Cairo',
-                    fontSize: screen.size.width > 500 ? 30 : 22,
+                    fontSize: screen.size.width > 500 ? 30 : 20,
                   ),
                   overflow: TextOverflow.ellipsis,
                   softWrap: true,

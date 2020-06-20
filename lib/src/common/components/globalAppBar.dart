@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlobalAppBar extends SliverPersistentHeaderDelegate {
-  final double expandedHeight = 130;
+  final double expandedHeight = 135;
   final Widget component;
   final String title;
 

@@ -108,7 +108,7 @@ class ActionViewer extends StatelessWidget {
                               ? Theme.of(context).errorColor
                               : isToday ? Colors.indigo : Colors.grey,
                           fontFamily: 'Cairo',
-                          fontSize: screen.size.width > 500 ? 20 : 16,
+                          fontSize: screen.size.width > 500 ? 18 : 14,
                         ),
                       ),
                       Spacer(),
@@ -124,7 +124,7 @@ class ActionViewer extends StatelessWidget {
                         style: TextStyle(
                           color: statusColor,
                           fontFamily: 'Cairo',
-                          fontSize: screen.size.width > 500 ? 22 : 18,
+                          fontSize: screen.size.width > 500 ? 18 : 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

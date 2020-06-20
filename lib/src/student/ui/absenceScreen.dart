@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 class AbsenceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData screen = MediaQuery.of(context);
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -30,7 +31,8 @@ class AbsenceScreen extends StatelessWidget {
                                     color: Colors.black,
                                     fontFamily: 'Cairo',
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 24.0,
+                                    fontSize:
+                                        screen.size.width > 500 ? 24.0 : 22.0,
                                   ),
                                 ),
                                 Text(
@@ -53,7 +55,8 @@ class AbsenceScreen extends StatelessWidget {
                                     color: Colors.red,
                                     fontFamily: 'Cairo',
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 24.0,
+                                    fontSize:
+                                        screen.size.width > 500 ? 24.0 : 22.0,
                                   ),
                                 ),
                                 Text(

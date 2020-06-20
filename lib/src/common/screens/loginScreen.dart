@@ -6,7 +6,6 @@ import 'package:centers/src/common/providers/authenticationProvider.dart';
 import 'package:centers/src/student/ui/studentMainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -57,10 +56,7 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Cairo',
-                      fontSize: ScreenUtil().setSp(
-                        ScreenUtil.screenWidth > 1750 ? 40 : 55,
-                        allowFontScalingSelf: true,
-                      ),
+                      fontSize: 30.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -156,10 +152,7 @@ class LoginScreen extends StatelessWidget {
                               color: Colors.white,
                               fontFamily: 'Cairo',
                               decorationStyle: TextDecorationStyle.dotted,
-                              fontSize: ScreenUtil().setSp(
-                                ScreenUtil.screenWidth > 1750 ? 40 : 45,
-                                allowFontScalingSelf: true,
-                              ),
+                              fontSize: 28.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

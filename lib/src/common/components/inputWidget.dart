@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputWidget extends StatefulWidget {
@@ -9,6 +8,7 @@ class InputWidget extends StatefulWidget {
   final FormFieldValidator<String> validator;
   final bool isPassword;
   final bool isLoading;
+  final bool editing;
 
   const InputWidget({
     @required this.labelText,
@@ -17,6 +17,7 @@ class InputWidget extends StatefulWidget {
     this.validator,
     this.isPassword = false,
     this.isLoading = false,
+    this.editing = false,
   });
 
   @override
@@ -40,10 +41,7 @@ class _InputWidgetState extends State<InputWidget> {
             style: TextStyle(
               color: Colors.indigo[200],
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil().setSp(
-                ScreenUtil.screenWidth > 1750 ? 20 : 34,
-                allowFontScalingSelf: true,
-              ),
+              fontSize: widget.editing ? 14.0 : 18.0,
             ),
           ),
           TextFormField(
@@ -66,7 +64,7 @@ class _InputWidgetState extends State<InputWidget> {
               contentPadding: EdgeInsets.all(
                 10.0,
               ),
-              hintText: widget.hintText,
+              hintText: widget.editing ? null : widget.hintText,
               hintStyle: TextStyle(
                 color: Colors.grey,
                 fontFamily: 'Cairo',
@@ -94,22 +92,20 @@ class _InputWidgetState extends State<InputWidget> {
                         )
                       : null,
             ),
+            initialValue: widget.editing ? widget.hintText : null,
             cursorColor: Colors.indigo,
             obscureText: widget.isPassword ? _obscureText : false,
             readOnly: widget.isLoading ? true : false,
             onSaved: widget.onSaved,
             validator: widget.validator,
             style: TextStyle(
-              color: Colors.indigo,
+              color: widget.editing ? Colors.black : Colors.indigo,
               fontFamily: 'Cairo',
-              fontSize: ScreenUtil().setSp(
-                ScreenUtil.screenWidth > 1750 ? 18 : 32,
-                allowFontScalingSelf: true,
-              ),
+              fontSize: widget.editing ? 16.0 : 14.0,
             ),
           ),
           SizedBox(
-            height: 15.0,
+            height: widget.editing ? 5.0 : 15.0,
           ),
         ],
       ),

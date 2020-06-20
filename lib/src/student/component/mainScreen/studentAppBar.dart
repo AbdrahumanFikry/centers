@@ -1,7 +1,7 @@
+import 'package:centers/src/common/screens/profileScreen.dart';
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:centers/src/student/ui/studentProfileScreen.dart';
 
 class StudentAppBar extends StatefulWidget {
   @override
@@ -53,20 +53,27 @@ class _StudentAppBarState extends State<StudentAppBar>
             ),
             Spacer(),
             GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>StudentProfileScreen()));
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => StudentProfileScreen(),
+                  ),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10.0,
                   vertical: 5.0,
                 ),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/images/user.png',
+                child: Hero(
+                  tag: 'Profile',
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage(
+                      'assets/images/user.png',
+                    ),
+                    backgroundColor: Colors.white,
+                    radius: 25.0,
                   ),
-                  backgroundColor: Colors.white,
-                  radius: 25.0,
                 ),
               ),
             ),

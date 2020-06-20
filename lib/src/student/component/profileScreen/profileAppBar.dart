@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class ProfileAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight = 200;
   final String title;
-
+  final Widget icon;
   ProfileAppBar({
     this.title = 'Null',
+    this.icon
   });
 
   @override
@@ -100,6 +101,12 @@ class ProfileAppBar extends SliverPersistentHeaderDelegate {
             )
           ),
         ),
+        Row(
+            children: <Widget>[
+              icon,
+            ],
+          ),
+
       ],
     );
   }

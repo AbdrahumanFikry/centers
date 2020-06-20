@@ -50,6 +50,15 @@ class StudentProfileScreen extends StatelessWidget {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          elevation: 7.0,
+          child: Icon(
+            FontAwesomeIcons.signOutAlt,
+          ),
+          onPressed: () {
+            //TODO -----SignOut-------
+          },
+        ),
       ),
     );
   }

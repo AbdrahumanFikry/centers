@@ -10,6 +10,29 @@ class Auth extends ChangeNotifier {
   bool hasError = false;
   String error = 'An error occurred!';
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> resetScreenFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> verifyScreenFormKey = GlobalKey<FormState>();
+
+  AnimationController timerController;
+  String countTimer = '00:00';
+
+  String get timerString {
+    Duration duration = timerController.duration * timerController.value;
+    countTimer =
+        '${(duration.inMinutes).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    return countTimer;
+  }
+
+  void startStopTimer() {
+    if (timerController.isAnimating)
+      timerController.stop();
+    else {
+      timerController.reverse(
+        from: timerController.value == 0.0 ? 1.0 : timerController.value,
+      );
+    }
+  }
 
   String emailValidator(value) {
     if (value.isEmpty) {

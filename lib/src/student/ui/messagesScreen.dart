@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData screen = MediaQuery.of(context);
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -39,7 +40,7 @@ class MessagesScreen extends StatelessWidget {
                       color: Colors.indigo[400],
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
-                      fontSize: 34.0,
+                      fontSize: screen.size.height > 800 ? 36.0 : 30.0,
                     ),
                   ),
                   Spacer(),

@@ -1,8 +1,9 @@
 import 'package:centers/src/common/components/pageRoute.dart';
 import 'package:centers/src/models/chat.dart';
-import 'package:centers/src/student/ui/chatScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/common/screens/chatScreen.dart';
 
 class UserHolder extends StatelessWidget {
   @override

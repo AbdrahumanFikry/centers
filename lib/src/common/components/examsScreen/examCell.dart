@@ -1,5 +1,5 @@
 import 'package:centers/src/models/examModel.dart';
-import 'package:centers/src/student/providers/studentProvider.dart';
+import 'package:centers/src/student/ui/examScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -11,14 +11,14 @@ class ExamCell extends StatelessWidget {
     final cellData = Provider.of<ExamModel>(context);
     String status = 'In time';
     bool isToday = cellData.date.day == DateTime.now().day;
-    MediaQueryData screen = MediaQuery.of(context);
     Color statusColor = Colors.indigo[300];
+    print(isToday);
     if (isToday) {
-      status = Provider.of<StudentProvider>(context, listen: false)
-          .calculateTimeDifference(
-        startTime: cellData.time.split('-')[0],
-        endTime: cellData.time.split('-')[1],
-      );
+//      status = Provider.of<StudentProvider>(context, listen: false)
+//          .calculateTimeDifference(
+//        startTime: cellData.time.split('-')[0],
+//        endTime: cellData.time.split('-')[1],
+//      );
       if (status == 'Finished') {
         statusColor = Colors.indigo[300];
       } else if (status == 'Started') {
@@ -29,8 +29,9 @@ class ExamCell extends StatelessWidget {
         statusColor = Colors.black;
       }
     }
+    MediaQueryData screen = MediaQuery.of(context);
     return Container(
-      width: screen.size.width > 500 ? 500 : null,
+      width: screen.size.width > 800 ? 500 : null,
       margin: const EdgeInsets.symmetric(
         horizontal: 10.0,
         vertical: 7.0,
@@ -178,8 +179,17 @@ class ExamCell extends StatelessWidget {
                       ),
                     ),
                     color: statusColor,
-                    onPressed:
-                        cellData.date.isAfter(DateTime.now()) ? null : () {},
+                    onPressed: cellData.date.isAfter(DateTime.now())
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => ExamScreen(
+                                  title: cellData.examTitle,
+                                ),
+                              ),
+                            );
+                          },
                   ),
                 ],
               ),

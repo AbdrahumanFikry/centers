@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErrorViewer extends StatelessWidget {
   final String error;
@@ -53,10 +52,7 @@ class ErrorViewer extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).errorColor,
                     fontFamily: 'Cairo',
-                    fontSize: ScreenUtil().setSp(
-                      screen.size.height < 800 ? 30.0 : 20.0,
-                      allowFontScalingSelf: true,
-                    ),
+                    fontSize: screen.size.width < 400 ? 14.0 : 20.0,
                   ),
                 ),
               ),

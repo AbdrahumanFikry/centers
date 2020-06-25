@@ -55,7 +55,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Cairo',
-                    fontSize: screen.size.width > 500 ? 20.0 : 18.0,
+                    fontSize: screen.size.width > 400 ? 20.0 : 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -64,7 +64,7 @@ class DayHeader extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Cairo',
-                    fontSize: screen.size.width > 500 ? 16.0 : 14.0,
+                    fontSize: screen.size.width > 400 ? 16.0 : 14.0,
                   ),
                 ),
               ],

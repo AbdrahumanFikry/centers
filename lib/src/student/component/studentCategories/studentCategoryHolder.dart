@@ -1,7 +1,7 @@
 import 'package:centers/src/common/components/pageRoute.dart';
+import 'package:centers/src/common/screens/examsScreen.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/ui/absenceScreen.dart';
-import 'package:centers/src/student/ui/examsScreen.dart';
 import 'package:centers/src/student/ui/messagesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

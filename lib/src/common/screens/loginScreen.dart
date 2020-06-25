@@ -3,6 +3,8 @@ import 'package:centers/src/common/components/errorViewer.dart';
 import 'package:centers/src/common/components/inputWidget.dart';
 import 'package:centers/src/common/components/pageRoute.dart';
 import 'package:centers/src/common/providers/authenticationProvider.dart';
+import 'package:centers/src/common/screens/registerScreen.dart';
+import 'package:centers/src/common/screens/resetPasswordScreen.dart';
 import 'package:centers/src/student/ui/studentMainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,6 +16,22 @@ class LoginScreen extends StatelessWidget {
     Navigator.of(context).push(
       FadeRoute(
         page: StudentMainScreen(),
+      ),
+    );
+  }
+
+  void _resetPassword(BuildContext context) {
+    Navigator.of(context).push(
+      FadeRoute(
+        page: ResetPasswordScreen(),
+      ),
+    );
+  }
+
+  void _signUp(BuildContext context) {
+    Navigator.of(context).push(
+      FadeRoute(
+        page: RegisterScreen(),
       ),
     );
   }
@@ -32,7 +50,9 @@ class LoginScreen extends StatelessWidget {
           key: Provider.of<Auth>(context, listen: false).loginFormKey,
           child: SingleChildScrollView(
             child: Container(
-              height: screen.size.height - screen.padding.top,
+              height: screen.size.height -
+                  screen.padding.top -
+                  screen.padding.bottom,
               width: screen.size.width,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -56,109 +76,167 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Cairo',
-                      fontSize: 30.0,
+                      fontSize: screen.size.height > 600 ? 30.0 : 24.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: screen.size.height > 850 ? 45.0 : 10.0,
                   ),
-                  ClipPath(
-                    clipper: LoginClipper(),
-                    child: Consumer<Auth>(
-                      builder: (context, loginData, _) => Container(
-                        width: screen.size.width > 400
-                            ? 360
-                            : screen.size.width * 0.90,
-                        height: screen.size.height > 1000
-                            ? 550
-                            : screen.size.height * 0.65,
+                  Stack(
+                    children: <Widget>[
+                      ClipPath(
+                        clipper: LoginClipper(),
+                        child: Consumer<Auth>(
+                          builder: (context, loginData, _) => Hero(
+                            tag: 'signUp',
+                            child: Container(
+                              width: screen.size.width > 600
+                                  ? 550.0
+                                  : screen.size.width * 0.90,
+                              height: screen.size.height > 850
+                                  ? 550
+                                  : screen.size.height * 0.65,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Consumer<Auth>(
+                        builder: (context, loginData, _) => Container(
+                          width: screen.size.width > 600
+                              ? 550.0
+                              : screen.size.width * 0.90,
+                          height: screen.size.height > 850
+                              ? 550
+                              : screen.size.height * 0.65,
+                          color: Colors.transparent,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15.0,
+                            vertical: 22.5,
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: screen.size.height > 600
+                                    ? 50.0
+                                    : loginData.hasError ? 1.0 : 20.0,
+                              ),
+                              InputWidget(
+                                labelText: 'Email',
+                                hintText: 'Enter your ID or Email',
+                                isPassword: false,
+                                onSaved: loginData.onSaveEmail,
+                                validator: loginData.emailValidator,
+                                isLoading: loginData.isLoading,
+                              ),
+                              InputWidget(
+                                labelText: 'Password',
+                                hintText: 'Enter your password',
+                                isPassword: true,
+                                onSaved: loginData.onSavePassword,
+                                validator: loginData.passwordValidator,
+                                isLoading: loginData.isLoading,
+                              ),
+                              loginData.hasError
+                                  ? ErrorViewer()
+                                  : SizedBox(
+                                      height: 5.0,
+                                    ),
+                              Spacer(),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  loginData.isLoading
+                                      ? Padding(
+                                          padding: const EdgeInsets.all(
+                                            10.0,
+                                          ),
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : RaisedButton(
+                                          shape: CircleBorder(),
+                                          onPressed: () => _login(context),
+                                          elevation: 5.0,
+                                          padding: EdgeInsets.symmetric(
+                                            vertical: screen.size.height < 600
+                                                ? 10.0
+                                                : 20.0,
+                                          ),
+                                          color: Colors.indigo[900],
+                                          child: Icon(
+                                            FontAwesomeIcons.arrowRight,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  InkWell(
+                    onTap: () => _resetPassword(context),
+                    child: Text(
+                      'Forget password?',
+                      style: TextStyle(
                         color: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15.0,
-                          vertical: 22.5,
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: loginData.hasError ? 1.0 : 40.0,
-                            ),
-                            InputWidget(
-                              labelText: 'Email',
-                              hintText: 'Enter your ID or Email',
-                              isPassword: false,
-                              onSaved: loginData.onSaveEmail,
-                              validator: loginData.emailValidator,
-                              isLoading: loginData.isLoading,
-                            ),
-                            InputWidget(
-                              labelText: 'Password',
-                              hintText: 'Enter your password',
-                              isPassword: true,
-                              onSaved: loginData.onSavePassword,
-                              validator: loginData.passwordValidator,
-                              isLoading: loginData.isLoading,
-                            ),
-                            loginData.hasError
-                                ? ErrorViewer()
-                                : SizedBox(
-                                    height: 5.0,
-                                  ),
-                            Spacer(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                loginData.isLoading
-                                    ? Padding(
-                                        padding: const EdgeInsets.all(
-                                          10.0,
-                                        ),
-                                        child: CircularProgressIndicator(),
-                                      )
-                                    : FloatingActionButton(
-                                        onPressed: () => _login(context),
-                                        backgroundColor: loginData.hasError
-                                            ? Theme.of(context).errorColor
-                                            : null,
-                                        mini: screen.size.height > 550
-                                            ? false
-                                            : true,
-                                        child: Icon(
-                                          FontAwesomeIcons.arrowRight,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                              ],
-                            ),
-                          ],
-                        ),
+                        fontFamily: 'Cairo',
+                        decorationStyle: TextDecorationStyle.dotted,
+                        fontSize: screen.size.height > 800 ? 22.0 : 16.0,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () => _skip(context),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0,
-                            vertical: 10.0,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 10.0,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          'Don\'t have account ?',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Cairo',
+                            decorationStyle: TextDecorationStyle.dotted,
+                            fontSize: screen.size.height > 800 ? 20.0 : 14.0,
                           ),
+                        ),
+                        InkWell(
+                          onTap: () => _signUp(context),
+                          child: Text(
+                            'SignUp',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Cairo',
+                              decoration: TextDecoration.underline,
+                              fontSize: screen.size.height > 800 ? 22.0 : 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        InkWell(
+                          onTap: () => _skip(context),
                           child: Text(
                             'Skip',
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Cairo',
                               decorationStyle: TextDecorationStyle.dotted,
-                              fontSize: 28.0,
+                              fontSize: screen.size.height > 800 ? 32.0 : 24.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

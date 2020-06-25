@@ -1,5 +1,5 @@
+import 'package:centers/src/common/components/examsScreen/examsList.dart';
 import 'package:centers/src/common/components/globalAppBar.dart';
-import 'package:centers/src/student/component/examsScreen/examsList.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 class ExamsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData screen = MediaQuery.of(context);
     return SafeArea(
       child: Material(
         child: CustomScrollView(
@@ -26,7 +27,7 @@ class ExamsScreen extends StatelessWidget {
                               color: Colors.black,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24.0,
+                              fontSize: screen.size.width > 500 ? 24.0 : 22.0,
                             ),
                           ),
                           Text(
@@ -49,7 +50,7 @@ class ExamsScreen extends StatelessWidget {
                               color: Colors.black,
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.bold,
-                              fontSize: 24.0,
+                              fontSize: screen.size.width > 500 ? 24.0 : 22.0,
                             ),
                           ),
                           Text(

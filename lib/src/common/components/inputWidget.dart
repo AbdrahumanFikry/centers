@@ -29,6 +29,7 @@ class _InputWidgetState extends State<InputWidget> {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData screen = MediaQuery.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
@@ -41,7 +42,9 @@ class _InputWidgetState extends State<InputWidget> {
             style: TextStyle(
               color: Colors.indigo[200],
               fontFamily: 'Cairo',
-              fontSize: widget.editing ? 14.0 : 18.0,
+              fontSize: widget.editing
+                  ? 14.0
+                  : screen.size.height > 800 ? 20.0 : 16.0,
             ),
           ),
           TextFormField(

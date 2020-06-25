@@ -4,9 +4,28 @@ import 'package:flutter/material.dart';
 
 class StudentProvider extends ChangeNotifier {
   AnimationController barAnimationController;
+  AnimationController timerController;
   Widget targetBody = StudentSchedule();
   bool isList = false;
   String actionStatus = 'In time';
+  String countTimer = '00:00';
+
+  String get timerString {
+    Duration duration = timerController.duration * timerController.value;
+    countTimer =
+        '${(duration.inMinutes).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    return countTimer;
+  }
+
+  void startStopTimer() {
+    if (timerController.isAnimating)
+      timerController.stop();
+    else {
+      timerController.reverse(
+        from: timerController.value == 0.0 ? 1.0 : timerController.value,
+      );
+    }
+  }
 
   void handleListChanges() {
     isList = !isList;

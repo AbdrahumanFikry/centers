@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:centers/src/common/components/pageRoute.dart';
 import 'package:centers/src/common/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         FadeRoute(
           page: LoginScreen(),
         ),
@@ -25,7 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
     return SafeArea(
       child: Container(
         height: MediaQuery.of(context).size.height,

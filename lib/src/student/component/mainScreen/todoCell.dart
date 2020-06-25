@@ -20,7 +20,7 @@ class TODOCell extends StatelessWidget {
         ),
       ),
       margin: const EdgeInsets.symmetric(
-        vertical: 10.0,
+        vertical: 5.0,
       ),
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,

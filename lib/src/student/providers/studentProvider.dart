@@ -9,6 +9,18 @@ class StudentProvider extends ChangeNotifier {
   bool isList = false;
   String actionStatus = 'In time';
   String countTimer = '00:00';
+  int pageIndex = 0;
+  PageController pageController;
+
+  moveToPage({int targetIndex}) {
+    pageIndex = targetIndex;
+    pageController.animateToPage(
+      targetIndex,
+      duration: Duration(milliseconds: 200),
+      curve: Curves.linear,
+    );
+    notifyListeners();
+  }
 
   String get timerString {
     Duration duration = timerController.duration * timerController.value;

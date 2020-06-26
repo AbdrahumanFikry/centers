@@ -1,4 +1,5 @@
 import 'package:centers/src/common/components/timerPainter.dart';
+import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -44,13 +45,15 @@ class _ExamProgressState extends State<ExamProgress>
         builder: (context, data, _) => Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Question 1 of 10',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Cairo',
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
+            Consumer<StudentData>(
+              builder: (context, questions, _) => Text(
+                'Question ${data.pageIndex + 1} of ${questions.examToAnswer.length}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Cairo',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                ),
               ),
             ),
             Spacer(),

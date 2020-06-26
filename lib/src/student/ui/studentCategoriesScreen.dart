@@ -23,11 +23,6 @@ class StudentCategories extends StatelessWidget {
       count: 0,
       avatar: FontAwesomeIcons.tasks,
     ),
-    CenterDataModel(
-      title: 'Sign out',
-      count: 0,
-      avatar: FontAwesomeIcons.signOutAlt,
-    ),
   ];
 
   @override

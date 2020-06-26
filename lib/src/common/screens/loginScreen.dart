@@ -112,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                               : screen.size.height * 0.65,
                           color: Colors.transparent,
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 15.0,
+                            horizontal: 5.0,
                             vertical: 22.5,
                           ),
                           child: Column(

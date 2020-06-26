@@ -1,11 +1,12 @@
 import 'package:centers/src/common/components/pageRoute.dart';
-import 'package:centers/src/common/screens/examsScreen.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/ui/absenceScreen.dart';
 import 'package:centers/src/student/ui/messagesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/ui/examsScreen.dart';
 
 class StudentCategoryHolder extends StatelessWidget {
   final int notification;
@@ -103,7 +104,7 @@ class StudentCategoryHolder extends StatelessWidget {
                     width: 1.0,
                   ),
             const SizedBox(
-              width: 15.0,
+              width: 10.0,
             ),
             Icon(
               Icons.arrow_forward_ios,
@@ -111,7 +112,7 @@ class StudentCategoryHolder extends StatelessWidget {
               size: 28.0,
             ),
             const SizedBox(
-              width: 20.0,
+              width: 15.0,
             ),
           ],
         ),

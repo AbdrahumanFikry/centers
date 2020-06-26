@@ -1,10 +1,18 @@
 import 'package:centers/src/models/absenceDay.dart';
 import 'package:centers/src/models/chat.dart';
 import 'package:centers/src/models/examModel.dart';
+import 'package:centers/src/models/examToAnswerModel.dart';
 import 'package:centers/src/student/component/messagesScreen/messageViewer.dart';
 import 'package:flutter/material.dart';
 
 class StudentData extends ChangeNotifier {
+  int earlier = 0;
+  int finished = 0;
+  List<ExamModel> earlierExams = [];
+  List<ExamModel> finishedExams = [];
+  TextEditingController message = TextEditingController();
+  String messageText = '';
+
   List<MaterialAbsence> materialAbsence = [
     MaterialAbsence(
       materialName: 'English',
@@ -59,11 +67,6 @@ class StudentData extends ChangeNotifier {
       absenceDays: [],
     ),
   ];
-  int earlier = 0;
-  int finished = 0;
-  List<ExamModel> earlierExams = [];
-  List<ExamModel> finishedExams = [];
-
   List<ExamModel> exams = [
     ExamModel(
       materialName: 'Physics',
@@ -106,7 +109,6 @@ class StudentData extends ChangeNotifier {
       scoured: 25,
     ),
   ];
-  TextEditingController message = TextEditingController();
   List<Widget> messages = [
     MessageViewer(
       type: 'me',
@@ -142,6 +144,47 @@ class StudentData extends ChangeNotifier {
       lastMessage: 'Eggy',
       date: '2:00 am',
       read: true,
+    ),
+  ];
+
+  List<ExamToAnswer> examToAnswer = [
+    ExamToAnswer(
+      id: 1,
+      question:
+          'As a child, what did you think would be awesome about being an adult, but isn’t as awesome as you thought it would be?',
+      answer: null,
+      image: 'assets/images/examExample.jpeg',
+      type: QuestionType.MCQ,
+      options: [
+        Option(id: 11, title: 'Work'),
+        Option(id: 22, title: 'Responsibility'),
+        Option(id: 33, title: 'Freedom'),
+        Option(id: 44, title: 'Marriage'),
+      ],
+    ),
+    ExamToAnswer(
+      id: 3,
+      question: ' What mythical creature do you wish actually existed?',
+      answer: null,
+      image: null,
+      type: QuestionType.TrueFalse,
+      options: [
+        Option(id: 55, title: 'True'),
+        Option(id: 66, title: 'False'),
+      ],
+    ),
+    ExamToAnswer(
+      id: 3,
+      question: 'Who do you wish you could get back into contact with?',
+      answer: null,
+      image: 'assets/images/examExample.jpeg',
+      type: QuestionType.MCQ,
+      options: [
+        Option(id: 55, title: 'Dad'),
+        Option(id: 66, title: 'Mom'),
+        Option(id: 77, title: 'Wife'),
+        Option(id: 88, title: 'Friend'),
+      ],
     ),
   ];
 
@@ -189,8 +232,6 @@ class StudentData extends ChangeNotifier {
     notifyListeners();
   }
 
-  String messageText = '';
-
   void typing(String value) {
     messageText = value;
     message.selection = TextSelection.collapsed(offset: message.text.length);
@@ -207,5 +248,16 @@ class StudentData extends ChangeNotifier {
     messages.add(cell);
     notifyListeners();
     message.clear();
+  }
+
+  void answer({int answerId}) {
+    examToAnswer.forEach((question) {
+      question.options.forEach((option) {
+        if (option.id == answerId) {
+          question.answer = option.title;
+        }
+      });
+    });
+    notifyListeners();
   }
 }

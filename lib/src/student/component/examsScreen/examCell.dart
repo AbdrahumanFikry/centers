@@ -12,7 +12,6 @@ class ExamCell extends StatelessWidget {
     String status = 'In time';
     bool isToday = cellData.date.day == DateTime.now().day;
     Color statusColor = Colors.indigo[300];
-    print(isToday);
     if (isToday) {
 //      status = Provider.of<StudentProvider>(context, listen: false)
 //          .calculateTimeDifference(

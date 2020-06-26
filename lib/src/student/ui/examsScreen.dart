@@ -1,5 +1,5 @@
-import 'package:centers/src/common/components/examsScreen/examsList.dart';
 import 'package:centers/src/common/components/globalAppBar.dart';
+import 'package:centers/src/student/component/examsScreen/examsList.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

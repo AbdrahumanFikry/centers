@@ -1,4 +1,4 @@
-import 'package:centers/src/common/components/examsScreen/examCell.dart';
+import 'package:centers/src/student/component/examsScreen/examCell.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';

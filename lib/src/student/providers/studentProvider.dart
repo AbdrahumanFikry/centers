@@ -16,7 +16,7 @@ class StudentProvider extends ChangeNotifier {
     pageIndex = targetIndex;
     pageController.animateToPage(
       targetIndex,
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 100),
       curve: Curves.linear,
     );
     notifyListeners();

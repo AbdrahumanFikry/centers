@@ -23,6 +23,7 @@ class ExamBody extends StatelessWidget {
             builder: (context, data, _) => PageView.builder(
               controller: Provider.of<StudentProvider>(context, listen: false)
                   .pageController,
+              physics: NeverScrollableScrollPhysics(),
               itemCount: data.examToAnswer.length,
               itemBuilder: (context, index) {
                 return ChangeNotifierProvider.value(

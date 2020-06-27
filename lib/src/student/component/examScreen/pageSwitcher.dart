@@ -1,3 +1,4 @@
+import 'package:centers/src/common/components/alerts/alertDialog.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
 import 'package:centers/src/student/providers/studentProvider.dart';
 import 'package:flutter/material.dart';
@@ -74,9 +75,18 @@ class PageSwitcher extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  page.pageIndex == data.examToAnswer.length - 1
-                      ? Navigator.of(context).pop()
-                      : page.moveToPage(targetIndex: ++page.pageIndex);
+                  if (page.pageIndex == data.examToAnswer.length - 1) {
+                    GlobalAlertDialog.show(
+                      context: context,
+                      dialogContent:
+                          'Are you sure you want to finish the exam?',
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    );
+                  } else {
+                    page.moveToPage(targetIndex: ++page.pageIndex);
+                  }
                 },
                 child: Card(
                   elevation: 0.5,

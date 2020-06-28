@@ -5,8 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class GlobalAlertDialog {
-  static void show(
-      {String dialogContent, BuildContext context, Function onTap}) {
+  static void show({
+    @required String dialogContent,
+    @required BuildContext context,
+    @required Function onTap,
+  }) {
     MediaQueryData screen = MediaQuery.of(context);
     if (Platform.isIOS) {
       showDialog(

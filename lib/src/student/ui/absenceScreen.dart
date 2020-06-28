@@ -1,3 +1,4 @@
+import 'package:centers/src/common/components/alerts/alertDialog.dart';
 import 'package:centers/src/common/components/globalAppBar.dart';
 import 'package:centers/src/student/component/absenceScreen/absenceList.dart';
 import 'package:centers/src/student/providers/dataProvider.dart';
@@ -94,8 +95,12 @@ class AbsenceScreen extends StatelessWidget {
               right: 10.0,
               child: GestureDetector(
                 onTap: () {
-                  //TODO ----------------------------
-                  print('Show dialog');
+                  GlobalAlertDialog.show(
+                    context: context,
+                    dialogContent:
+                        'If you didn\'t attend 3 classes in each material you will be panned ',
+                    onTap: () {},
+                  );
                 },
                 child: CircleAvatar(
                   backgroundColor: Colors.grey[500].withOpacity(0.4),

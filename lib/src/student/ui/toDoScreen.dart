@@ -69,7 +69,11 @@ class ToDoScreen extends StatelessWidget {
                 builder: (context, data, _) => ListView(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0, top: 20.0),
+                      padding: const EdgeInsets.only(
+                        left: 15.0,
+                        top: 20.0,
+                        right: 15.0,
+                      ),
                       child: data.earlierToDo.isEmpty
                           ? SizedBox()
                           : Row(
@@ -101,7 +105,11 @@ class ToDoScreen extends StatelessWidget {
                             isEarlier: true,
                           ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0, top: 20.0),
+                      padding: const EdgeInsets.only(
+                        left: 15.0,
+                        top: 20.0,
+                        right: 15.0,
+                      ),
                       child: data.comingToDo.isEmpty
                           ? SizedBox()
                           : Row(

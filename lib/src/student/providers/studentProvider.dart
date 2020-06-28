@@ -7,6 +7,8 @@ class StudentProvider extends ChangeNotifier {
   AnimationController timerController;
   Widget targetBody = StudentSchedule();
   bool isList = false;
+  double toDHeight = 150.0;
+  bool isExpanded = false;
   String actionStatus = 'In time';
   String countTimer = '00:00';
   int pageIndex = 0;
@@ -16,7 +18,7 @@ class StudentProvider extends ChangeNotifier {
     pageIndex = targetIndex;
     pageController.animateToPage(
       targetIndex,
-      duration: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 200),
       curve: Curves.linear,
     );
     notifyListeners();
@@ -37,6 +39,16 @@ class StudentProvider extends ChangeNotifier {
         from: timerController.value == 0.0 ? 1.0 : timerController.value,
       );
     }
+  }
+
+  void expand({int itemLength, double constantLength}) {
+    isExpanded = !isExpanded;
+    if (isExpanded) {
+      toDHeight = itemLength * constantLength;
+    } else {
+      toDHeight = 150.0;
+    }
+    notifyListeners();
   }
 
   void handleListChanges() {

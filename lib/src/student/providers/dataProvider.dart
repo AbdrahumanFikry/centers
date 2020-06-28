@@ -2,6 +2,7 @@ import 'package:centers/src/models/absenceDay.dart';
 import 'package:centers/src/models/chat.dart';
 import 'package:centers/src/models/examModel.dart';
 import 'package:centers/src/models/examToAnswerModel.dart';
+import 'package:centers/src/models/toDoModel.dart';
 import 'package:centers/src/student/component/messagesScreen/messageViewer.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,8 @@ class StudentData extends ChangeNotifier {
   List<ExamModel> finishedExams = [];
   TextEditingController message = TextEditingController();
   String messageText = '';
-
+  List<ToDoModel> earlierToDo = [];
+  List<ToDoModel> comingToDo = [];
   List<MaterialAbsence> materialAbsence = [
     MaterialAbsence(
       materialName: 'English',
@@ -188,6 +190,34 @@ class StudentData extends ChangeNotifier {
     ),
   ];
 
+  List<ToDoModel> toDos = [
+    ToDoModel(
+      title: 'HomeWork',
+      date: DateTime(2020, 6, 29),
+      material: 'Physics',
+    ),
+    ToDoModel(
+      title: 'Assignment',
+      date: DateTime(2020, 7, 5),
+      material: 'Math',
+    ),
+    ToDoModel(
+      title: 'Task',
+      date: DateTime(2020, 7, 25),
+      material: 'DataBase',
+    ),
+    ToDoModel(
+      title: 'Project',
+      date: DateTime(2020, 8, 1),
+      material: 'Math',
+    ),
+    ToDoModel(
+      title: 'Bla Blaject',
+      date: DateTime(2020, 8, 1),
+      material: 'Math',
+    ),
+  ];
+
   int readCount() {
     int read = 0;
     chats.forEach((element) {
@@ -229,6 +259,22 @@ class StudentData extends ChangeNotifier {
         finished++;
       }
     });
+    notifyListeners();
+  }
+
+  void filterToDo() {
+    earlierToDo = [];
+    comingToDo = [];
+    DateTime now = DateTime.now();
+    toDos.forEach((element) {
+      if (element.date.difference(now).inDays <= 2) {
+        earlierToDo.add(element);
+      } else {
+        comingToDo.add(element);
+      }
+    });
+    earlierToDo
+        .sort((first, second) => first.date.difference(second.date).inDays);
     notifyListeners();
   }
 

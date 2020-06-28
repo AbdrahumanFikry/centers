@@ -46,7 +46,7 @@ class GlobalAlertDialog {
       showDialog(
         context: context,
         builder: (ctx) => GlobalDialog(
-          header: 'Warning',
+          header: 'Alert',
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[

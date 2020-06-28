@@ -1,12 +1,13 @@
-import 'package:centers/src/student/component/mainScreen/todoCell.dart';
 import 'package:flutter/material.dart';
+
+import 'file:///E:/Flutter_Projects/centers/lib/src/student/component/toDoScreen/todoCell.dart';
 
 class ScheduleHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData screen = MediaQuery.of(context);
     return Container(
-      height: screen.size.height > 600 ? 100 : 75,
+      height: screen.size.height > 600 ? 90 : 75,
       width: screen.size.width,
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(
@@ -45,9 +46,7 @@ class ScheduleHeader extends StatelessWidget {
             ],
           ),
           Spacer(),
-          TODOCell(
-            toDoListCount: 2,
-          ),
+          TODOCell(),
         ],
       ),
     );

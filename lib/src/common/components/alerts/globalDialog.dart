@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GlobalDialog extends StatelessWidget {
   final String header;
@@ -31,9 +30,6 @@ class GlobalDialog extends StatelessWidget {
                 ? 400.0
                 : MediaQuery.of(context).size.width * 0.95,
             color: Colors.transparent,
-            margin: const EdgeInsets.only(
-              top: 90.0,
-            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -75,19 +71,19 @@ class GlobalDialog extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            top: 0.0,
-            left: MediaQuery.of(context).size.width * 0.5 - 80.0,
-            child: CircleAvatar(
-              radius: 40.0,
-              backgroundColor: Colors.red.withOpacity(0.8),
-              child: Icon(
-                FontAwesomeIcons.exclamation,
-                color: Colors.white,
-                size: 30.0,
-              ),
-            ),
-          ),
+//          Positioned(
+//            top: 0.0,
+//            left: MediaQuery.of(context).size.width * 0.5 - 80.0,
+//            child: CircleAvatar(
+//              radius: 40.0,
+//              backgroundColor: Colors.red.withOpacity(0.8),
+//              child: Icon(
+//                FontAwesomeIcons.exclamation,
+//                color: Colors.white,
+//                size: 30.0,
+//              ),
+//            ),
+//          ),
         ],
       ),
     );
